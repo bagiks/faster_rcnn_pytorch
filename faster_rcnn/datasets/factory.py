@@ -18,6 +18,7 @@ from .kitti_tracking import kitti_tracking
 from .nthu import nthu
 from .coco import coco
 from .kittivoc import kittivoc
+from .street_to_shop_voc import street_to_shop_voc
 
 
 def _selective_search_IJCV_top_k(split, year, top_k):
@@ -68,6 +69,8 @@ for split in ['71', '370']:
     # print name
     __sets[name] = (lambda split=split: nthu(split))
 
+
+__sets["street_to_shop_voc"] = street_to_shop_voc('train', '/data/export/street-to-shop-voc')
 
 def get_imdb(name):
     """Get an imdb (image database) by name."""
